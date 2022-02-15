@@ -7,6 +7,7 @@ import './docIndex.scss'
 import { DocInfo } from '/@/types/docInfo.d'
 import { Project } from '/@/types/project.d'
 import { CataLogInfo, PageInfo } from '/@/types/catalog.d'
+import { isGiteeSite } from '/@/utils/locationUtil'
 
 /**
  * 文档首页
@@ -62,6 +63,11 @@ class DocIndexService {
      */
     pageName: Ref<string> = ref('');
 
+    /**
+     * 基础路径
+     */
+    private basePath = isGiteeSite() ? '/nani-doc-web/docDist' : '/docDist'
+
     constructor() {
         const routeParams: RouteParams = getCurrentRoute().params;
         this.projectName.value = routeParams.projectName ? <string>routeParams.projectName : '';
@@ -78,7 +84,7 @@ class DocIndexService {
      * 加载项目信息
     */
     private async loadProjectInfo() {
-        const res = await fetch(`/docDist/${this.projectName.value}/index.json`, {
+        const res = await fetch(`${this.basePath}/${this.projectName.value}/index.json`, {
             method: "GET",
             mode: "cors",
             credentials: "include",
@@ -97,7 +103,7 @@ class DocIndexService {
      */
     private async loadCatalogInfo() {
         this.setLocation()
-        const res = await fetch(`/docDist/${this.projectName.value}/catalog/${this.moduleName.value}.json`, {
+        const res = await fetch(`${this.basePath}/${this.projectName.value}/catalog/${this.moduleName.value}.json`, {
             method: "GET",
             mode: "cors",
             credentials: "include",
@@ -132,7 +138,7 @@ class DocIndexService {
      * 加载文档
      */
     private async loadDoc() {
-        let path: string[] = ['/docDist/']
+        let path: string[] = [`${this.basePath}/`]
         path.push(this.projectName.value)
         path.push('/')
         path.push(this.pageName.value);

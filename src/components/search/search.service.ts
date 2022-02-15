@@ -2,6 +2,7 @@ import { defineComponent, watch, Ref, ref, onMounted, onBeforeUnmount } from "vu
 import highlightText from "/@/components/search/components/highlightText/highlightText.vue";
 import { Search } from './types/search.d'
 import './search.scss'
+import { isGiteeSite } from '/@/utils/locationUtil'
 
 /**
  * 搜索组件service
@@ -39,6 +40,11 @@ class SearchService {
     keyword: Ref<string> = ref('')
 
     /**
+     * 基础路径
+     */
+    private basePath = isGiteeSite() ? '/nani-doc-web/docDist' : '/docDist'
+
+    /**
      * 初始化搜索组件
      * @param props 组件参数
      */
@@ -59,7 +65,7 @@ class SearchService {
             return;
         }
         try {
-            const res = await fetch(`/docDist/${this.projectName.value}/searchIndex/index.json`, {
+            const res = await fetch(`${this.basePath}/${this.projectName.value}/searchIndex/index.json`, {
                 method: "GET",
                 mode: "cors",
                 credentials: "include",
@@ -78,7 +84,7 @@ class SearchService {
      */
     private async loadDoc(p: number) {
         try {
-            const res = await fetch(`/docDist/${this.projectName.value}/searchIndex/${p}.json`, {
+            const res = await fetch(`${this.basePath}/${this.projectName.value}/searchIndex/${p}.json`, {
                 method: "GET",
                 mode: "cors",
                 credentials: "include",
