@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory, RouteLocationNormalizedLoaded } from 'vue-router'
 const index = () => import(/* webpackChunkName: "index" */ './views/index/index.vue')
 const docIndex = () => import(/* webpackChunkName: "index" */ './views/docIndex/docIndex.vue')
+const basePath = import.meta.env.BASE_PATH
 
 const routes = [
-    { path: `${import.meta.env.BASE_PATH}/`, component: index, meta: { title: "NaNi文档" } },
-    { path: `${import.meta.env.BASE_PATH}/:projectName`, component: docIndex },
-    { path: `${import.meta.env.BASE_PATH}/:projectName/:moduleName`, component: docIndex },
-    { path: `${import.meta.env.BASE_PATH}/:projectName/:moduleName/:pageName*`, component: docIndex },
+    { path: `${basePath}/`, component: index, meta: { title: "NaNi文档" } },
+    { path: `${basePath}/:projectName`, component: docIndex },
+    { path: `${basePath}/:projectName/:moduleName`, component: docIndex },
+    { path: `${basePath}/:projectName/:moduleName/:pageName*`, component: docIndex },
 ]
 
 const router = createRouter({
