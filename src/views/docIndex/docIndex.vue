@@ -4,7 +4,7 @@
     <header class="navbar">
       <div class="sidebar-button"></div>
       <a
-        :href="`/${projectInfo.projectName}/`"
+        :href="`/nani-doc-web/${projectInfo.projectName}/`"
         class="home-link router-link-active"
       >
         <span class="site-name">{{ projectInfo.projectTitle }}</span>

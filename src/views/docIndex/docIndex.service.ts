@@ -121,7 +121,7 @@ class DocIndexService {
      * 设置页面地址
      */
     private setLocation() {
-        let url: string[] = [this.projectName.value];
+        let url: string[] = [`/nani-doc-web/${this.projectName.value}`];
         if (this.moduleName.value &&
             this.pageName.value &&
             this.pageName.value.indexOf(this.moduleName.value) < 0) {
