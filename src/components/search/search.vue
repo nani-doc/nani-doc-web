@@ -43,7 +43,7 @@
                 v-for="action in actions"
                 :key="action.path"
               >
-                <a :href="`/${projectName}${action.path}`">
+                <a :href="`/nani-doc-web/${projectName}${action.path}`">
                   <div>
                     <highlightText :texts="action.actionTitle"></highlightText>
                   </div>

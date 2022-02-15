@@ -3,7 +3,7 @@
   <div class="projects">
     <div class="title">项目列表</div>
     <a
-      :href="`/${item.projectName}/`"
+      :href="`./${item.projectName}/`"
       class="item"
       v-for="item in projects"
       :key="`page_${item.projectName}`"
