@@ -1,0 +1,148 @@
+.search-box {
+    display: inline-block;
+    position: relative;
+    margin-right: 1rem;
+
+    input {
+        cursor: text;
+        width: 10rem;
+        height: 2rem;
+        color: #4e6e8e;
+        display: inline-block;
+        border: 1px solid #cfd4db;
+        border-radius: 2rem;
+        font-size: 0.9rem;
+        line-height: 2rem;
+        padding: 0 0.5rem 0 2rem;
+        outline: none;
+        transition: all 0.2s ease;
+        background-size: 1rem;
+        background: #fff url(/@/assets/search.svg) 0.6rem 0.6rem no-repeat;
+
+        &:focus {
+            cursor: auto;
+            border-color: #3eaf7c;
+        }
+    }
+
+    .suggestion {
+        background: #fff;
+        min-width: 500px;
+        max-width: 700px;
+        position: absolute;
+        top: 2.2rem;
+        border: 1px solid #cfd4db;
+        border-radius: 6px;
+        padding: 0.4rem;
+        list-style-type: none;
+        text-align: left;
+        line-height: 1.4;
+        border-radius: 4px;
+        width: 100%;
+        display: block;
+        white-space: normal;
+        color: #415b75;
+        width: 100%;
+
+        &.align-right {
+            right: 0;
+        }
+
+        .parent-page-title {
+            color: #fff;
+            font-weight: 600;
+            background-color: #3eaf7c;
+            padding: 5px;
+            text-align: left;
+        }
+
+        .suggestion-row {
+            display: flex;
+            height: 100%;
+            border: 1px solid #eaecef;
+            border-top: none;
+            background: #f5f5f5;
+
+            .actions {
+                flex: 3;
+                background-color: #fff;
+            }
+
+            .page-title {
+                flex: 1;
+                align-self: center;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .suggestion-content {
+                &:first-child {
+                    margin-top: 1px;
+                }
+
+                &:last-child {
+                    border: none;
+                }
+
+                cursor: pointer;
+                font-weight: 400;
+                border-bottom: 1px solid #eaecef;
+                border-right: none;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: 959px) {
+    .search-box input {
+        cursor: pointer;
+        width: 0;
+        border-color: transparent;
+        position: relative;
+
+        &:focus {
+            cursor: text;
+            left: 0;
+            width: 10rem;
+        }
+    }
+}
+
+@media (-ms-high-contrast: none) {
+    .search-box input {
+        height: 2rem;
+    }
+}
+
+@media (max-width: 959px) and (min-width: 719px) {
+    .search-box .suggestion {
+        left: 0;
+    }
+}
+
+@media (max-width: 719px) {
+    .search-box {
+        margin-right: 0;
+
+        input {
+            left: 1rem;
+        }
+
+        .suggestion {
+            right: 0;
+        }
+    }
+}
+
+@media (max-width: 419px) {
+    .search-box {
+        .suggestion {
+            width: calc(100vw - 4rem);
+        }
+
+        input:focus {
+            width: 8rem;
+        }
+    }
+}
