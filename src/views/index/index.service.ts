@@ -17,7 +17,7 @@ class IndexService {
     /**
      * 基础路径
      */
-    private basePath = isGiteeSite() ? '/nani-doc-web/docDist' : '/docDist'
+    private basePath = isGiteeSite() ? `${import.meta.env.BASE_PATH}/docDist` : '/docDist'
 
     constructor() {
         this.loadProjects()

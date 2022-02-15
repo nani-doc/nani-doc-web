@@ -3,10 +3,10 @@ const index = () => import(/* webpackChunkName: "index" */ './views/index/index.
 const docIndex = () => import(/* webpackChunkName: "index" */ './views/docIndex/docIndex.vue')
 
 const routes = [
-    { path: '/nani-doc-web/', component: index, meta: { title: "NaNi文档" } },
-    { path: '/nani-doc-web/:projectName', component: docIndex },
-    { path: '/nani-doc-web/:projectName/:moduleName', component: docIndex },
-    { path: '/nani-doc-web/:projectName/:moduleName/:pageName*', component: docIndex },
+    { path: `${import.meta.env.BASE_PATH}/`, component: index, meta: { title: "NaNi文档" } },
+    { path: `${import.meta.env.BASE_PATH}/:projectName`, component: docIndex },
+    { path: `${import.meta.env.BASE_PATH}/:projectName/:moduleName`, component: docIndex },
+    { path: `${import.meta.env.BASE_PATH}/:projectName/:moduleName/:pageName*`, component: docIndex },
 ]
 
 const router = createRouter({

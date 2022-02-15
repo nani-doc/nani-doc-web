@@ -42,7 +42,7 @@ class SearchService {
     /**
      * 基础路径
      */
-    private basePath = isGiteeSite() ? '/nani-doc-web/docDist' : '/docDist'
+    private basePath = isGiteeSite() ? `${import.meta.env.BASE_PATH}/docDist` : '/docDist'
 
     /**
      * 初始化搜索组件
@@ -271,6 +271,7 @@ export default defineComponent({
             window.removeEventListener("click", searchService.onBodyClick.bind(searchService));
         })
         return {
+            basePath: import.meta.env.BASE_PATH,
             projectName: searchService.projectName,
             searchResults: searchService.searchResults,
             searchResultKeys: searchService.searchResultKeys,

@@ -66,7 +66,7 @@ class DocIndexService {
     /**
      * 基础路径
      */
-    private basePath = isGiteeSite() ? '/nani-doc-web/docDist' : '/docDist'
+    private basePath = isGiteeSite() ? `${import.meta.env.BASE_PATH}/docDist` : '/docDist'
 
     constructor() {
         const routeParams: RouteParams = getCurrentRoute().params;
@@ -121,7 +121,7 @@ class DocIndexService {
      * 设置页面地址
      */
     private setLocation() {
-        let url: string[] = [`/nani-doc-web/${this.projectName.value}`];
+        let url: string[] = [`${import.meta.env.BASE_PATH}/${this.projectName.value}`];
         if (this.moduleName.value &&
             this.pageName.value &&
             this.pageName.value.indexOf(this.moduleName.value) < 0) {
@@ -130,7 +130,7 @@ class DocIndexService {
         if (this.pageName.value) {
             url.push(this.pageName.value)
         }
-        window.history.pushState({}, '', `/${url.join("/")}`)
+        window.history.pushState({}, '', `${window.location.host}/${url.join("/")}`)
         window.history.forward();
     }
 
@@ -181,6 +181,7 @@ export default defineComponent({
     setup: () => {
         const docIndexService = new DocIndexService();
         return {
+            basePath: import.meta.env.BASE_PATH,
             projectInfo: docIndexService.projectInfo,
             catelogs: docIndexService.catelogs,
             pageInfo: docIndexService.pageInfo,
