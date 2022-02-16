@@ -1,5 +1,6 @@
 import { defineComponent, ref, Ref } from "vue";
-import typescriptContent from "/@/components//typescriptContent/typescriptContent.vue";
+import { BASE_PATH } from '/@/constant'
+import typescriptContent from "/@/components/typescriptContent/typescriptContent.vue";
 import './index.scss'
 import { Project } from '/@/types/project'
 import { isGiteeSite } from '/@/utils/locationUtil'
@@ -17,7 +18,7 @@ class IndexService {
     /**
      * 基础路径
      */
-    private basePath = isGiteeSite() ? `${import.meta.env.BASE_PATH}/docDist` : '/docDist'
+    private basePath = isGiteeSite() ? `${BASE_PATH}/docDist` : '/docDist'
 
     constructor() {
         this.loadProjects()

@@ -1,4 +1,5 @@
 import { defineComponent, watch, Ref, ref, onMounted, onBeforeUnmount } from "vue";
+import { BASE_PATH } from '/@/constant'
 import highlightText from "/@/components/search/components/highlightText/highlightText.vue";
 import { Search } from './types/search.d'
 import './search.scss'
@@ -42,7 +43,7 @@ class SearchService {
     /**
      * 基础路径
      */
-    private basePath = isGiteeSite() ? `${import.meta.env.BASE_PATH}/docDist` : '/docDist'
+    private basePath = isGiteeSite() ? `${BASE_PATH}/docDist` : '/docDist'
 
     /**
      * 初始化搜索组件
@@ -271,7 +272,7 @@ export default defineComponent({
             window.removeEventListener("click", searchService.onBodyClick.bind(searchService));
         })
         return {
-            basePath: import.meta.env.BASE_PATH,
+            basePath: BASE_PATH,
             projectName: searchService.projectName,
             searchResults: searchService.searchResults,
             searchResultKeys: searchService.searchResultKeys,

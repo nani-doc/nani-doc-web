@@ -1,6 +1,7 @@
 import { defineComponent, ref, Ref } from "vue";
 import { getCurrentRoute } from '/@/routers'
 import { RouteParams } from 'vue-router'
+import { BASE_PATH } from '/@/constant'
 import typescriptContent from "/@/components/typescriptContent/typescriptContent.vue";
 import search from "/@/components/search/search.vue";
 import './docIndex.scss'
@@ -66,7 +67,7 @@ class DocIndexService {
     /**
      * 基础路径
      */
-    private basePath = isGiteeSite() ? `${import.meta.env.BASE_PATH}/docDist` : '/docDist'
+    private basePath = isGiteeSite() ? `${BASE_PATH}/docDist` : '/docDist'
 
     constructor() {
         const routeParams: RouteParams = getCurrentRoute().params;
@@ -121,7 +122,7 @@ class DocIndexService {
      * 设置页面地址
      */
     private setLocation() {
-        let url: string[] = [`${import.meta.env.BASE_PATH}/${this.projectName.value}`];
+        let url: string[] = [`${BASE_PATH}/${this.projectName.value}`];
         if (this.moduleName.value &&
             this.pageName.value &&
             this.pageName.value.indexOf(this.moduleName.value) < 0) {
@@ -181,7 +182,7 @@ export default defineComponent({
     setup: () => {
         const docIndexService = new DocIndexService();
         return {
-            basePath: import.meta.env.BASE_PATH,
+            basePath: BASE_PATH,
             projectInfo: docIndexService.projectInfo,
             catelogs: docIndexService.catelogs,
             pageInfo: docIndexService.pageInfo,
