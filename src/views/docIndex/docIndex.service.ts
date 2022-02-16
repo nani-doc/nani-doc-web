@@ -131,7 +131,7 @@ class DocIndexService {
         if (this.pageName.value) {
             url.push(this.pageName.value)
         }
-        window.history.pushState({}, '', `${window.location.host}/${url.join("/")}`)
+        window.history.pushState({}, '', `${url.join("/")}`)
         window.history.forward();
     }
 

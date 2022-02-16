@@ -45,6 +45,7 @@ export default defineComponent({
     setup: () => {
         const indexService = new IndexService();
         return {
+            basePath: BASE_PATH,
             projects: indexService.projects
         }
     },
