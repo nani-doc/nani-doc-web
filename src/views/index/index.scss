@@ -1,12 +1,14 @@
-.projects{
+.projects {
     text-align: left;
-    .title{
+
+    .title {
         font-size: 28px;
         border-bottom: solid 2px rgb(33, 150, 243);
         margin-bottom: 10px;
     }
-    .item{
-        width:126px;
+
+    .item {
+        width: 126px;
         height: 194px;
         border: 1px solid rgb(3, 169, 244);
         display: flex;
@@ -16,7 +18,8 @@
         text-decoration: none;
         color: #000;
         padding: 0px 10px;
-        &:hover{
+
+        &:hover {
             background-color: rgb(3, 169, 244);
             cursor: pointer;
             color: #fff;

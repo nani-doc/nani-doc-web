@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "build:gitee": "vue-tsc --noEmit && vite build --mode gitee",
+    "build:gitee": "vue-tsc --noEmit && vite --config vite.config.gitee.ts build --mode gitee",
     "serve": "vite preview"
   },
   "dependencies": {
