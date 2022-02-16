@@ -1,6 +1,11 @@
 # 项目名称
 纳尼文档（NaNi Doc）Web界面
 
+### 示例
+
+- [中国用户](https://nani-doc.gitee.io/nani-doc-web/)
+- [海外用户](https://demo.nanidoc.lmm.show/)
+
 ### 使用说明
 1. docDist目录结构
 
