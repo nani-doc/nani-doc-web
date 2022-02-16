@@ -5,9 +5,9 @@ name: publish nani-doc-web
 
 on:
   push:
-    branches: [ batch-2022-01-20-01 ]
+    branches: [ main ]
   pull_request:
-    branches: [ batch-2022-01-20-01 ]
+    branches: [ main ]
 
 jobs:
   build:
